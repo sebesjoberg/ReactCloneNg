@@ -22,7 +22,7 @@ class NavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg bg-light ml-auto mx-5">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/#">
+          <a className="navbar-brand" href="/">
             <img src={logo} alt="Nationsguiden" width={225} />
           </a>
           <button
@@ -42,14 +42,14 @@ class NavBar extends Component {
           >
             <ul className="nav navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Evenemang
                 </a>
               </li>
               <li className="nav-item dropdown px-3">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="/#"
+                  href="/"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
@@ -71,12 +71,12 @@ class NavBar extends Component {
               </li>
 
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Gästkort
                 </a>
               </li>
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/#">
+                <a className="nav-link active" aria-current="page" href="/">
                   Kontakt
                 </a>
               </li>
