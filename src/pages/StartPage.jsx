@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import NavBar from "../components/NavBar";
 import Events from "../components/Events";
-class EventPage extends Component {
+class StartPage extends Component {
   state = {};
   render() {
     return (
@@ -13,4 +13,4 @@ class EventPage extends Component {
   }
 }
 
-export default EventPage;
+export default StartPage;

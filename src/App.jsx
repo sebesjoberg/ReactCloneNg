@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import EventPage from "./pages/EventPage";
+import StartPage from "./pages/StartPage";
 
 export default class App extends Component {
   state = {};
@@ -8,8 +8,8 @@ export default class App extends Component {
     const router = createBrowserRouter([
       {
         path: "/",
-        element: <EventPage />,
-        errorElement: <EventPage />,
+        element: <StartPage />,
+        errorElement: <StartPage />,
       },
     ]);
     return <RouterProvider router={router} />;
