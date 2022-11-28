@@ -1,17 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import StartPage from "./pages/StartPage";
 
-export default class App extends Component {
-  state = {};
-  render() {
-    const router = createBrowserRouter([
-      {
-        path: "/",
-        element: <StartPage />,
-        errorElement: <StartPage />,
-      },
-    ]);
-    return <RouterProvider router={router} />;
-  }
-}
+const App = () => {
+  const [state, setState] = useState();
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <StartPage />,
+      errorElement: <StartPage />,
+    },
+  ]);
+  return <RouterProvider router={router} />;
+};
+export default App;
