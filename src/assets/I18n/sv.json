@@ -1,3 +1,8 @@
 {
-  "translation": {}
+  "translation": {
+    "events": "Evenemang",
+    "nations": "Nationer",
+    "guestcard": "Gästkort",
+    "contact": "Kontakt"
+  }
 }

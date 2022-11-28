@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import logo from "../assets/images/logo.png";
+import { withTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 class NavBar extends Component {
   state = {
     nations: [
@@ -19,6 +21,7 @@ class NavBar extends Component {
     ],
   };
   render() {
+    const { t } = this.props;
     return (
       <nav className="navbar navbar-expand-lg bg-light ml-auto mx-5">
         <div className="container-fluid">
@@ -42,43 +45,42 @@ class NavBar extends Component {
           >
             <ul className="nav navbar-nav ms-auto mb-2 mb-lg-0 ">
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Evenemang
-                </a>
+                <Link className="nav-link active" aria-current="page" to="/">
+                  {t("events")}
+                </Link>
               </li>
               <li className="nav-item dropdown px-3">
-                <a
+                <Link
                   className="nav-link dropdown-toggle"
-                  href="/"
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Nationer
-                </a>
+                  {t("nations")}
+                </Link>
                 <ul className="dropdown-menu">
                   {this.state.nations.map((nation) => (
                     <li key={nation}>
-                      <a
+                      <Link
                         className="dropdown-item"
-                        href={"/nation?nation=" + nation}
+                        to={"/nation?nation=" + nation}
                       >
                         {nation}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </li>
 
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Gästkort
-                </a>
+                <Link className="nav-link active" aria-current="page" to="/">
+                  {t("guestcard")}
+                </Link>
               </li>
               <li className="nav-item px-3">
-                <a className="nav-link active" aria-current="page" href="/">
-                  Kontakt
-                </a>
+                <Link className="nav-link active" aria-current="page" to="/">
+                  {t("contact")}
+                </Link>
               </li>
             </ul>
           </div>
@@ -88,4 +90,4 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;
+export default withTranslation()(NavBar);

@@ -1,8 +1,20 @@
 import React, { Component } from "react";
+import { format, formatRelative, parseISO } from "date-fns";
+import { enGB, sv } from "date-fns/locale";
 class Event extends Component {
   state = this.props.event;
   timeParser = () => {
-    return this.state.starttime + "-" + this.state.endtime;
+    let eventstart = new Date(parseISO(this.state.starttime));
+    let eventend = new Date(parseISO(this.state.endtime));
+    const today = new Date();
+    const start = formatRelative(eventstart, today, {
+      locale: enGB,
+    });
+    const end = formatRelative(eventend, today, {
+      locale: enGB,
+    });
+
+    return start + "-" + end.slice(-5);
   };
   render() {
     return (
