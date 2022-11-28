@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";

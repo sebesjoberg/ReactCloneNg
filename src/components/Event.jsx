@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { format, formatRelative, parseISO } from "date-fns";
 import { enGB, sv } from "date-fns/locale";
 const Event = (props) => {

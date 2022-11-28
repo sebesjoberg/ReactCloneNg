@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import StartPage from "./pages/StartPage";
 

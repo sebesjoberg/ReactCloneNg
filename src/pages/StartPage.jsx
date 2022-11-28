@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import Events from "../components/Events";
 const StartPage = () => {
