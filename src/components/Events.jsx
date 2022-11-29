@@ -4,7 +4,7 @@ const Events = () => {
   useEffect(() => {
     fetch("https://backendnationsinn.herokuapp.com/api/list/")
       .then((respone) => respone.json())
-      .then((data) => console.log(data));
+      .then((data) => setState(data));
   }, []);
   const [state, setState] = useState([]);
   const onClick = (id) => {
@@ -14,9 +14,14 @@ const Events = () => {
   return (
     <div className="album py-5 bg-light">
       <div className="container">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3 ">
+        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
           {state.map((event) => (
-            <Event key={event.id} event={event} click={onClick} />
+            <Event
+              key={event.id}
+              event={event}
+              click={onClick}
+              style={{ height: "300px" }}
+            />
           ))}
         </div>
       </div>
