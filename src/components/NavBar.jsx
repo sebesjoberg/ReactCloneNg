@@ -4,22 +4,8 @@ import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 function NavBar(props) {
   const [state, setState] = useState({
-    nations: [
-      "Stockholms nation",
-      "Uplands nation",
-      "Gästrike-Hälsinge nation",
-      "Östgöta nation",
-      "Västgöta nation",
-      "Södermanlands-Nerikes nation",
-      "Västmanlands-Dala nation",
-      "Smålands nation",
-      "Göteborgs nation",
-      "Kalmar nation",
-      "Värmlands nation",
-      "Norrlands nation",
-      "Gotlands nation",
-    ],
-  });
+    nations: props.nations,
+  }); //could use props.nations directly, might cause unnessecary rerenders tough?
 
   const { t } = props;
   return (

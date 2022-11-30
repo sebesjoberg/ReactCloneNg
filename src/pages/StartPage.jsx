@@ -5,10 +5,22 @@ import Filter from "../components/Filter";
 function StartPage() {
   const [events, setEvents] = useState([]);
   const [date, setDate] = useState(new Date());
+  const [nations, setNations] = useState({
+    "Stockholms nation": false,
+    "Uplands nation": false,
+    "Gästrike-Hälsinge nation": false,
+    "Östgöta nation": false,
+    "Västgöta nation": false,
+    "Södermanlands-Nerikes nation": false,
+    "Västmanlands-Dala nation": false,
+    "Smålands nation": false,
+    "Göteborgs nation": false,
+    "Kalmar nation": false,
+    "Värmlands nation": false,
+    "Norrlands nation": false,
+    "Gotlands nation": false,
+  });
   useEffect(() => {
-    console.log(
-      date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-    );
     fetch(
       "https://backendnationsinn.herokuapp.com/api/list/?starttime=" +
         date.getFullYear() +
@@ -22,7 +34,6 @@ function StartPage() {
   }, [date]);
   const changeDate = (x) => {
     if (typeof x === "number") {
-      console.log("number1");
       var myDate = new Date(date.valueOf());
       myDate.setDate(myDate.getDate() + x);
       setDate(myDate);
@@ -31,7 +42,7 @@ function StartPage() {
 
   return (
     <div>
-      <NavBar />
+      <NavBar nations={Object.keys(nations)} />
       <Filter date={date} changeDate={changeDate} />
       <Events events={events} />
     </div>
