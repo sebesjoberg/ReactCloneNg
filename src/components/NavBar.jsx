@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import { withTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-const NavBar = (props) => {
+function NavBar(props) {
   const [state, setState] = useState({
     nations: [
       "Stockholms nation",
@@ -87,6 +87,6 @@ const NavBar = (props) => {
       </div>
     </nav>
   );
-};
+}
 
 export default withTranslation()(NavBar);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { format, formatRelative, parseISO } from "date-fns";
 import { enGB, sv } from "date-fns/locale";
-const Event = (props) => {
+function Event(props) {
   const [state, setState] = useState(props.event);
   const timeParser = () => {
     let eventstart = new Date(parseISO(state.starttime));
@@ -42,6 +42,6 @@ const Event = (props) => {
       </div>
     </div>
   );
-};
+}
 
 export default Event;

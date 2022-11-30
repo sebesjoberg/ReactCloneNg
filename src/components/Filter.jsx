@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { withTranslation } from "react-i18next";
 import { format, formatRelative, parseISO } from "date-fns";
 import { enGB, sv } from "date-fns/locale";
-const Filter = (props) => {
+function Filter(props) {
   const { t, i18n } = props;
 
-  const dateParser = () => {
-    const event = props.date;
+  const dateParser = (event) => {
     const today = new Date();
     const options = "EEE d LLL";
     var lang = enGB;
@@ -19,7 +18,7 @@ const Filter = (props) => {
       new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
     );
 
-    if (nextWeek < Date.parse(event)) {
+    if (nextWeek > Date.parse(event)) {
       return formatRelative(event, today, {
         locale: lang,
       }).slice(0, -9);
@@ -41,7 +40,7 @@ const Filter = (props) => {
             className="btn btn-outline-secondary btn-light btn-lg mx-2"
             style={{ width: "250px" }}
           >
-            {dateParser()}
+            {dateParser(props.date)}
           </a>
           <button
             className="btn btn-outline-secondary btn-light"
@@ -54,5 +53,5 @@ const Filter = (props) => {
       </header>
     </div>
   );
-};
+}
 export default withTranslation()(Filter);
