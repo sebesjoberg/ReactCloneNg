@@ -3,6 +3,9 @@
     "events": "Events",
     "nations": "Nations",
     "guestcard": "Guest cards",
-    "contact": "Contact"
+    "contact": "Contact",
+    "language": "English",
+    "swedish": "Swedish",
+    "english": "English"
   }
 }

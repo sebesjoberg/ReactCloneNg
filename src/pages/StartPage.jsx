@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Events from "../components/Events";
 import Filter from "../components/Filter";
+import { fetchDate, fetchDateNation } from "../assets/functions/fetchers";
 function StartPage() {
   const [events, setEvents] = useState([]);
   const [date, setDate] = useState(new Date());
@@ -20,18 +21,24 @@ function StartPage() {
     "Norrlands nation": false,
     "Gotlands nation": false,
   });
+  const handleChange = (event) => {
+    setNations({
+      ...nations,
+      [event.target.id]: event.target.checked,
+    });
+  };
   useEffect(() => {
-    fetch(
-      "https://backendnationsinn.herokuapp.com/api/list/?starttime=" +
-        date.getFullYear() +
-        "-" +
-        (date.getMonth() + 1) +
-        "-" +
-        date.getDate()
-    )
-      .then((respone) => respone.json())
-      .then((data) => setEvents(data));
-  }, [date]);
+    const trueKeys = Object.entries(nations)
+      .filter(([key, value]) => value)
+      .map(([key, value]) => key);
+    if (trueKeys.length === 0) {
+      fetchDate(date).then((data) => {
+        setEvents(data);
+      });
+    } else {
+      fetchDateNation();
+    }
+  }, [date, nations]);
   const changeDate = (x) => {
     if (typeof x === "number") {
       var myDate = new Date(date.valueOf());
@@ -43,7 +50,12 @@ function StartPage() {
   return (
     <div>
       <NavBar nations={Object.keys(nations)} />
-      <Filter date={date} changeDate={changeDate} />
+      <Filter
+        date={date}
+        changeDate={changeDate}
+        nations={nations}
+        handleChange={handleChange}
+      />
       <Events events={events} />
     </div>
   );

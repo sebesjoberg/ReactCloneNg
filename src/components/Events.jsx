@@ -14,7 +14,7 @@ function Events(props) {
               key={event.id}
               event={event}
               click={onClick}
-              style={{ height: "300px" }}
+              style={{ height: "350px" }}
             />
           ))}
         </div>

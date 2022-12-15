@@ -3,6 +3,9 @@
     "events": "Evenemang",
     "nations": "Nationer",
     "guestcard": "Gästkort",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "language": "Svenska",
+    "swedish": "Svenska",
+    "english": "Engelska"
   }
 }
