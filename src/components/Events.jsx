@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import Event from "./Event";
+
+import { useNavigate } from "react-router-dom";
 function Events(props) {
+  const navigate = useNavigate();
   const onClick = (id) => {
-    console.log(id); //reroute here
+    navigate("/event/" + id);
   };
 
   return (

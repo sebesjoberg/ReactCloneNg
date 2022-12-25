@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { withTranslation } from "react-i18next";
 import { format, formatRelative, parseISO } from "date-fns";
+import DatePicker from "react-datepicker";
 import { enGB, sv } from "date-fns/locale";
 import { Link } from "react-router-dom";
+import "react-datepicker/dist/react-datepicker.css";
 function Filter(props) {
   const { t, i18n } = props;
+
   const handleDropClick = (e) => {
     e.stopPropagation();
   };
@@ -41,12 +44,21 @@ function Filter(props) {
           >
             <AiOutlineLeft />
           </button>
-          <a
-            className="btn btn-outline-secondary btn-light btn-lg mx-2"
-            style={{ width: "250px" }}
-          >
-            {dateParser(props.date)}
-          </a>
+          <div style={{ width: "250px" }} className="mx-2">
+            <DatePicker
+              selected={props.date}
+              onChange={(date) => props.changeDate(date)}
+              customInput={
+                <a
+                  className="btn btn-outline-secondary btn-light btn-lg"
+                  style={{ width: "250px" }}
+                >
+                  {dateParser(props.date)}
+                </a>
+              }
+            />
+          </div>
+
           <button
             className="btn btn-outline-secondary btn-light"
             onClick={() => props.changeDate(1)}

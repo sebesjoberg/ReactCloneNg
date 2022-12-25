@@ -39,10 +39,19 @@ function StartPage() {
       fetchDateNation();
     }
   }, [date, nations]);
-  const changeDate = (x) => {
-    if (typeof x === "number") {
-      var myDate = new Date(date.valueOf());
-      myDate.setDate(myDate.getDate() + x);
+  const changeDate = (changer) => {
+    let myDate;
+    const today = new Date();
+    var yesterday = Date.parse(
+      new Date(today.getFullYear(), today.getMonth(), today.getDate() - 1)
+    );
+    if (typeof changer === "number") {
+      myDate = new Date(date.valueOf());
+      myDate.setDate(myDate.getDate() + changer);
+    } else {
+      myDate = changer;
+    }
+    if (myDate > yesterday) {
       setDate(myDate);
     }
   };
