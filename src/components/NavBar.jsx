@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import logo from "../assets/images/logo.png";
 import { withTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 function NavBar(props) {
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
   };
+  const [nations] = useState([
+    "Stockholms nation",
+    "Uplands nation",
+    "Gästrike-Hälsinge nation",
+    "Östgöta nation",
+    "Västgöta nation",
+    "Södermanlands-Nerikes nation",
+    "Västmanlands-Dala nation",
+    "Smålands nation",
+    "Göteborgs nation",
+    "Kalmar nation",
+    "Värmlands nation",
+    "Norrlands nation",
+    "Gotlands nation",
+  ]);
 
   const { t, i18n } = props;
   return (
@@ -74,12 +89,9 @@ function NavBar(props) {
                   {t("nations")}
                 </Link>
                 <ul className="dropdown-menu">
-                  {props.nations.map((nation) => (
+                  {nations.map((nation) => (
                     <li key={nation}>
-                      <Link
-                        className="dropdown-item"
-                        to={"/nation?nation=" + nation}
-                      >
+                      <Link className="dropdown-item" to={"/nation/" + nation}>
                         {nation}
                       </Link>
                     </li>
